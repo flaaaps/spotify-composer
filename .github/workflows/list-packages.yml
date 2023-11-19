@@ -8,12 +8,16 @@ on:
       - spike/workflows
       - main
 jobs:
-  list-files:
+  install-dependencies:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: npm install
+
       - name: List files
-        run: ls -la; cat package.json
+        run: npm install license-checker
+
   list-packages:
     runs-on: ubuntu-latest
     steps:
