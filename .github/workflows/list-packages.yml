@@ -8,20 +8,15 @@ on:
       - spike/workflows
       - main
 jobs:
-  install-dependencies:
+  list-packages:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Install dependencies
         run: npm install
 
-      - name: List files
+      - name: Install license-checker
         run: npm install license-checker
 
-  list-packages:
-    runs-on: ubuntu-latest
-    needs: install-dependencies
-    steps:
-      - uses: actions/checkout@v2
       - name: List packages
         run: npx license-checker --production
