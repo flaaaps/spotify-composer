@@ -20,3 +20,20 @@ jobs:
 
       - name: List packages
         run: npx license-checker --production
+
+  list-capacitor-packages:
+    runs-on: ubuntu-lastest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Navigate to capacitor directory
+        run: cd packages/app/capacitor
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Install license-checker
+        run: npm install license-checker
+
+      - name: List packages
+        run: npx license-checker --production
