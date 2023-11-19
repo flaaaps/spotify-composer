@@ -1,0 +1,22 @@
+# This workflow will list all npm packages and their licenses in this repository using npx license-checker
+name: list-packages
+on:
+  push:
+    branches:
+      - develop
+      - staging
+      - spike/workflows
+      - main
+jobs:
+  list-files:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: List files
+        run: ls -la; cat package.json
+  list-packages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: List packages
+        run: npx license-checker --production
