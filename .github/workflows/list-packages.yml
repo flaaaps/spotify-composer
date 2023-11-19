@@ -18,9 +18,5 @@ jobs:
       - name: List files
         run: npm install license-checker
 
-  list-packages:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: List packages
+      - name: List licenses
         run: npx license-checker --production
